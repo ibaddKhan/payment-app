@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../../screens/home/home'
 import About from '../../screens/about/about'
 import Contact from '../../screens/contact/contact'
+import Faq from '../../screens/faq/faq'
 import Navbar from '../../components/Navbar'
 
 const Routers = () => {
@@ -13,6 +14,7 @@ const Routers = () => {
                     <Route path='/' element={< Home />} />
                     <Route path='about' element={<About />} />
                     <Route path='/contact' element={<Contact />} />
+                    <Route path='/frequentlyAsked' element={<Faq />} />
                 </Routes>
 
             </BrowserRouter>
