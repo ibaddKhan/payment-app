@@ -4,6 +4,7 @@ import About from '../../screens/about/about'
 import Contact from '../../screens/contact/contact'
 import Faq from '../../screens/faq/faq'
 import Navbar from '../../components/Navbar'
+import Footer from '../../components/footer'
 
 const Routers = () => {
     return (
@@ -16,6 +17,7 @@ const Routers = () => {
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/frequentlyAsked' element={<Faq />} />
                 </Routes>
+                <Footer />
 
             </BrowserRouter>
         </>
