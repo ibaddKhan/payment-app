@@ -25,11 +25,11 @@ const Routers = () => {
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/frequentlyAsked' element={<Faq />} />
                     <Route path='/cookies' element={<Cookies />} />
-                    <Route path='/terms' element={<Terms />} />
-                    <Route path='/privacy' element={<Privacy />} />
+                    <Route path='/termsAndconditon' element={<Terms />} />
+                    <Route path='/privacypolicy' element={<Privacy />} />
                     <Route path='/returnrefund' element={<Returnrefund />} />
 
-                    
+
                 </Routes>
                 <Footer />
 
