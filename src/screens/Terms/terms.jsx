@@ -2,7 +2,7 @@
 
 const Terms = () => {
   return (
-    <div className="container mx-auto shadow-xl my-8">
+    <div className="container md:w-4/5  mx-auto shadow-2xl my-8">
       <div className="max-w-3/4 mx-auto">
         <h1 className="text-center text-5xl font-semibold my-10">Terms and Conditions</h1>
 
