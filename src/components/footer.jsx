@@ -26,6 +26,7 @@ const Footer = () => {
                     <Link className="link link-hover">Return and Refunds Policy</Link>
                     <Link className="link link-hover">Privacy Policy</Link>
                     <Link className="link link-hover">Cookies Policy</Link>
+                    
                 </nav>
                 <nav>
                     <h1 className="footer-title text-lg">Quick Links</h1>
