@@ -26,7 +26,7 @@ Attempting to gain unauthorized access to our systems or user accounts.</p>
 <h1 className='text-2xl p-4'>5. Privacy</h1>
 <p className='text-lg p-4'>Your use of our Services is subject to our Privacy Policy, which outlines how we collect, use, and protect your personal information. By using our Services, you consent to the practices described in the Privacy Policy.</p>
 
-<h1 className='text-2xl p-4'>6. Disclaimer</h1>
+
 
  </>
   )
