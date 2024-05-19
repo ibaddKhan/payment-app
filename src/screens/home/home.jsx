@@ -163,8 +163,8 @@ const Home = () => {
                                 required
                             />
                         </div>
-                        <div className="form-control">
-                            <button type="submit" className="btn btn-primary w-full">Submit</button>
+                        <div className="form-control ">
+                            <button type="submit" className="btn border rounded-md mx-auto w-2/3">Next</button>
                         </div>
                     </form>
                 </div>
