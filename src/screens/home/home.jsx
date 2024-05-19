@@ -18,7 +18,7 @@ const Home = () => {
                                 <span className="label-text">Phone Number</span>
                             </label>
                             <div className="flex">
-                                <input type="tel" placeholder="Phone number" className="input input-bordered flex-1" required />
+                                <input type="tel" placeholder="+1 xxx-xxx-xxxx" className="input input-bordered flex-1" required />
                             </div>
                         </div>
                         <div className="form-control">
@@ -26,7 +26,7 @@ const Home = () => {
                                 <span className="label-text">Confirm Phone Number</span>
                             </label>
                             <div className="flex">
-                                <input type="tel" placeholder="Confirm phone number" className="input input-bordered flex-1" required />
+                                <input type="tel" placeholder="+1 xxx-xxx-xxxx" className="input input-bordered flex-1" required />
                             </div>
                         </div>
                         <hr />

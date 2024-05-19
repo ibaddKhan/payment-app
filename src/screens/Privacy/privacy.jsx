@@ -4,6 +4,7 @@ const Privacy = () => {
       <div>
         <h1 className="text-center text-3xl md:text-5xl  cursor-default font-semibold my-10">Privacy Policy</h1>
       </div>
+      <p className="p-4">Welcome to Pay Boost Bills. We are committed to protecting your privacy and ensuring your personal information is handled in a safe and responsible manner. This Privacy Policy outlines the types of information we collect, how we use it, and the steps we take to ensure it remains confidential.</p>
       {[
         { title: "1. Information We Collect", content: "We may collect personal information such as your name, email address, and other data necessary to provide our services. We may also collect non-personal information, such as device information and usage data." },
         { title: "2. How We Use Your Information", content: "We use your information to provide and improve our services, communicate with you, and ensure compliance with legal requirements." },
