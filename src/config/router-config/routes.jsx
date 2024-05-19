@@ -10,6 +10,7 @@ import Terms from '../../screens/Terms/terms';
 import Privacy from '../../screens/Privacy/privacy';
 import Returnrefund from '../../screens/Returnrefund/returnrefund';
 import Checkout from '../../screens/checkout/checkout'
+import ScrollToTop from '../../components/scrolltoTop'
 
 
 
@@ -19,6 +20,7 @@ const Routers = () => {
     return (
         <>
             <BrowserRouter>
+                <ScrollToTop />
                 <Navbar />
                 <Routes>
                     <Route path='/' element={< Home />} />
