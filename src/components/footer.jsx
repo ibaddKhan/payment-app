@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-1">
                         <CiPhone size={24} />
-                        <Link className="link link-hover">+1 (347) 809-3331</Link>
+                        <Link className="link link-hover">+1 (833) 443-3203</Link>
                     </div>
                 </nav>
                 <nav>
