@@ -11,7 +11,7 @@ const Navbar = () => {
     const getNavLinkClass = ({ isActive }) => isActive ? "hover:text-purple-300 text-lg font-normal text-purple-300" : "hover:text-purple-300 text-lg font-normal";
 
     return (
-        <div className="navbar border-b border-slate-600">
+        <div data-theme="business" className="navbar  border-b border-slate-600">
             <div className="flex-1 ml-5">
                 <img src="https://www.payboostbills.com/static/media/pbblogo.2781af64db3db9d44aa5.png" className="w-20" alt="" />
             </div>

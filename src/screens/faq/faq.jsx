@@ -1,12 +1,11 @@
-
 const Faq = () => {
     return (
         <>
             <div>
                 <h1 className="text-center text-5xl cursor-default font-semibold my-10">Frequently Asked Questions</h1>
             </div>
-            <div className="flex justify-center">
-                <div className="w-8/12">
+            <div className="flex justify-center px-4 md:px-0">
+                <div className="w-full md:w-8/12 lg:w-8/12">
                     <details open className="collapse collapse-arrow my-2 bg-base-200">
                         <summary className="collapse-title text-xl font-medium">
                             What services does PayBoost Bills offer?
