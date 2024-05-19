@@ -1,78 +1,98 @@
 import { useState } from 'react';
-import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 const Home = () => {
+    let [limitOnAmount, setAmountLimit] = useState()
+    let navigate = useNavigate();
     const [formData, setFormData] = useState({
-        phoneNumber: '',
-        confirmPhoneNumber: '',
+        phoneNumber: '+1',
+        confirmPhoneNumber: '+1',
         amountToPay: '',
         pin: ''
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (name === 'phoneNumber' || name === 'confirmPhoneNumber') {
+            if (!value.startsWith('+1')) return;
+            if (value.length > 12) return;
+        }
+        if (name === 'pin') {
+            if (value.length > 4) return;
+        }
+        if (name === 'amountToPay') {
+            if (value > 200) {
+                setAmountLimit("Amount must be in between 10 and 200")
+                return;
+            } else {
+                setAmountLimit(null)
+            }
+
+        }
+
         setFormData({
             ...formData,
             [name]: value
         });
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formData.phoneNumber.length != 11 && formData.confirmPhoneNumber.length != 11) {
+        if (formData.phoneNumber.length !== 12 || formData.confirmPhoneNumber.length !== 12) {
             Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "There should be 11 numbers",
+                position: 'center',
+                icon: 'error',
+                title: 'There should be 10 digits after +1',
                 showConfirmButton: false,
                 timer: 1500
             });
-
-            return
+            return;
         }
-        else if (formData.phoneNumber !== formData.confirmPhoneNumber) {
+        if (formData.phoneNumber !== formData.confirmPhoneNumber) {
             Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Passwords are not same",
+                position: 'center',
+                icon: 'error',
+                title: 'Phone numbers do not match',
                 showConfirmButton: false,
                 timer: 1500
             });
-
-            return
-        } else if (formData.amountToPay < 10 || formData.amountToPay > 200) {
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Due Amount must be equal to or greater than 10 and less than or equal to 200",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            return
-        } else if (formData.pin.length !== 4) {
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Pin Should be 4 Digits",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            return
-        } else {
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Checking out",
-                showConfirmButton: false,
-                timer: 1500
-            });
-
-            console.log('Form Data:', formData);
-
+            return;
         }
+        if (formData.amountToPay < 10 || formData.amountToPay > 200) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Amount must be between 10 and 200',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
+        if (formData.pin.length !== 4) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'PIN should be 4 digits',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Checking out',
+            showConfirmButton: false,
+            timer: 1500
+        });
 
-
-
+        localStorage.setItem('formData', JSON.stringify(formData))
+        console.log('Form Data:', formData);
+        navigate('checkout');
 
     };
+
     return (
         <>
             <div className="hero gap-10 mb-20 min-h-screen flex flex-col items-center justify-center space-y-8 md:space-y-16">
@@ -86,15 +106,12 @@ const Home = () => {
                             </label>
                             <div className="flex">
                                 <input
-                                    type="number"
-                                    minLength={11}
-                                    maxLength={11}
+                                    type="text"
                                     placeholder="+1 xxxxxxxxxx"
                                     className="input input-bordered flex-1"
                                     name="phoneNumber"
                                     value={formData.phoneNumber}
                                     onChange={handleChange}
-
                                     required
                                 />
                             </div>
@@ -105,9 +122,7 @@ const Home = () => {
                             </label>
                             <div className="flex">
                                 <input
-                                    type="number"
-                                    minLength={11}
-                                    maxLength={11}
+                                    type="text"
                                     placeholder="+1 xxxxxxxxxx"
                                     className="input input-bordered flex-1"
                                     name="confirmPhoneNumber"
@@ -132,6 +147,7 @@ const Home = () => {
                                 onChange={handleChange}
                                 required
                             />
+                            <p className='text-red-600 mt-3'>{limitOnAmount}</p>
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -139,8 +155,6 @@ const Home = () => {
                             </label>
                             <input
                                 type="number"
-                                minLength={4}
-                                maxLength={4}
                                 placeholder="4 digit PIN"
                                 className="input input-bordered w-full"
                                 name="pin"
@@ -154,6 +168,7 @@ const Home = () => {
                         </div>
                     </form>
                 </div>
+
                 <div id="content" className="p-5 shadow-2xl rounded-lg w-full max-w-6xl">
                     <h1 className="text-3xl font-bold mb-4 ">Welcome to MyBoostMobileBill - The Mobile Bill Payment System You Can Rely On</h1>
                     <p className=" mb-6">

@@ -9,6 +9,7 @@ import Cookies from '../../screens/Cookies/cookies';
 import Terms from '../../screens/Terms/terms';
 import Privacy from '../../screens/Privacy/privacy';
 import Returnrefund from '../../screens/Returnrefund/returnrefund';
+import Checkout from '../../screens/checkout/checkout'
 
 
 
@@ -21,13 +22,14 @@ const Routers = () => {
                 <Navbar />
                 <Routes>
                     <Route path='/' element={< Home />} />
-                    <Route path='about' element={<About />} />
+                    <Route path='/about' element={<About />} />
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/frequentlyAsked' element={<Faq />} />
                     <Route path='/cookies' element={<Cookies />} />
                     <Route path='/termsAndconditon' element={<Terms />} />
                     <Route path='/privacypolicy' element={<Privacy />} />
                     <Route path='/returnrefund' element={<Returnrefund />} />
+                    <Route path='checkout' element={<Checkout />} />
 
 
                 </Routes>
