@@ -1,20 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,Link, useLocation } from "react-router-dom";
 import Hamburger from 'hamburger-react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    
+    const location = useLocation();
+
+
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
+    useEffect(() => {
+        setIsOpen(false);
+
+    }, [location]);
 
     const getNavLinkClass = ({ isActive }) => isActive ? "hover:text-purple-300 text-lg font-normal text-purple-300" : "hover:text-purple-300 text-lg font-normal";
 
     return (
         <div data-theme="business" className="navbar  border-b border-slate-600">
             <div className="flex-1 ml-5">
-                <img src="https://www.payboostbills.com/static/media/pbblogo.2781af64db3db9d44aa5.png" className="w-20" alt="" />
-            </div>
+             <Link to={'/'}>   <img src="https://www.payboostbills.com/static/media/pbblogo.2781af64db3db9d44aa5.png" className="w-20" alt="" />
+           </Link>
+              </div>
             <div className="flex-none font-bold space-x-6 mr-10 hidden sm:block">
                 <NavLink className={getNavLinkClass} to={'/'}>Home</NavLink>
                 <NavLink className={getNavLinkClass} to={'/about'}>About Us</NavLink>
@@ -28,10 +37,10 @@ const Navbar = () => {
             </label>
             <div className="dropdown relative block sm:hidden">
                 <div tabIndex={0} className="m-1" onClick={toggleDropdown}>
-                    <Hamburger />
+                    <Hamburger  toggled={isOpen} toggle={setIsOpen} />
                 </div>
                 {isOpen && (
-                    <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box absolute right-0 w-52">
+                    <ul className="dropdown-content z-[1] menu  p-2 shadow bg-base-100 rounded-box absolute right-0 w-52">
                         <li>
                             <NavLink to={'/'} className={getNavLinkClass}>
                                 Home

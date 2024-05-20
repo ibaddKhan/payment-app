@@ -106,7 +106,7 @@ const Home = () => {
                                 <input
                                     type="text"
                                     placeholder="+1 xxxxxxxxxx"
-                                    className="input input-bordered flex-1"
+                                    className="input input-bordered w-full"
                                     name="phoneNumber"
                                     value={formData.phoneNumber}
                                     onChange={handleChange}
@@ -122,7 +122,7 @@ const Home = () => {
                                 <input
                                     type="text"
                                     placeholder="+1 xxxxxxxxxx"
-                                    className="input input-bordered flex-1"
+                                    className="input input-bordered w-full"
                                     name="confirmPhoneNumber"
                                     value={formData.confirmPhoneNumber}
                                     onChange={handleChange}
