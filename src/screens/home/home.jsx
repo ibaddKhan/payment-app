@@ -11,7 +11,6 @@ const Home = () => {
         amountToPay: '',
         pin: ''
     });
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === 'phoneNumber' || name === 'confirmPhoneNumber') {
@@ -20,8 +19,14 @@ const Home = () => {
         }
         if (name === 'pin') {
             if (value.length > 4) return;
+            // Prevent negative pin numbers
+            if (parseInt(value) < 0) return;
         }
         if (name === 'amountToPay') {
+            // Prevent negative amount
+            if (parseInt(value) < 0) return;
+            // Prevent amount starting with 0
+            if (value.startsWith('0')) return;
             if (value > 200) {
                 setAmountLimit("Amount must be in between 10 and 200");
                 return;
@@ -29,13 +34,13 @@ const Home = () => {
                 setAmountLimit(null);
             }
         }
-
+    
         setFormData({
             ...formData,
             [name]: value
         });
     };
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.phoneNumber.length !== 12 || formData.confirmPhoneNumber.length !== 12) {
