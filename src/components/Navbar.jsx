@@ -42,24 +42,24 @@ const Navbar = () => {
                 {isOpen && (
                     <ul className="dropdown-content z-[1] menu  p-2 shadow bg-base-100 rounded-box absolute right-0 w-52">
                         <li>
-                            <Link to={'/'} className={getNavLinkClass}>
+                            <a href={'/'} className={getNavLinkClass}>
                                 Home
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link to={'/about'} className={getNavLinkClass}>
+                            <a href={'/about'} className={getNavLinkClass}>
                                 About Us
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link to={'/contact'} className={getNavLinkClass}>
+                            <a href={'/contact'} className={getNavLinkClass}>
                                 Contact Us
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link to={'/frequentlyAsked'} className={getNavLinkClass}>
+                            <a href={'/frequentlyAsked'} className={getNavLinkClass}>
                                 FAQS
-                            </Link>
+                            </a>
                         </li>
                     </ul>
                 )}
