@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    console.log("toggled");
   };
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const Navbar = () => {
           <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box absolute right-0 w-52">
             <li>
               <Link to={"/"} className="link link-hover">
-                Contact Us
+                Home
               </Link>
             </li>
             <li>
