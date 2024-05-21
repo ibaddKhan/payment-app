@@ -34,6 +34,12 @@ const Navbar = () => {
             alt="Logo"
           />
         </Link>
+        <Link className={getNavLinkClass} to={"/frequentlyAsked"}>
+          Faq
+        </Link>
+        <Link className={getNavLinkClass} to={"/contact"}>
+          Contact
+        </Link>
       </div>
       <div className="flex-none font-bold space-x-6 mr-10 hidden sm:block">
         <NavLink className={getNavLinkClass} to={"/"}>

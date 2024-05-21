@@ -34,14 +34,14 @@ const Home = () => {
                 setAmountLimit(null);
             }
         }
-    
+
         setFormData({
             ...formData,
             [name]: value
         });
     };
-    
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.phoneNumber.length !== 12 || formData.confirmPhoneNumber.length !== 12) {
             Swal.fire({
@@ -83,7 +83,7 @@ const Home = () => {
             });
             return;
         }
-        Swal.fire({
+        await Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Checking out',
@@ -202,7 +202,7 @@ const Home = () => {
                         <p>Go to Pay Boost Bills and login to your account. If you don’t have an account, sign up to get started.</p>
                     </div>
                     <ol className="list-decimal space-y-6 pl-5 mb-4">
-                     
+
                         <li><div className="font-bold">Enter your Boost Mobile account details</div> Enter your Boost Mobile account number and payment amount.</li>
                         <li><div className="font-bold">Select PayPal as Payment Method</div> Select PayPal as your preferred payment method. You will be redirected to the PayPal login page.</li>
                         <li><div className="font-bold">Login to your PayPal account</div> Enter your PayPal credentials to sign in and confirm payment.</li>
@@ -211,10 +211,10 @@ const Home = () => {
                     <h3 className="text-xl mt-10 font-bold mb-2">Pay by debit card</h3>
                     <div className="mb-8">
                         <p className="mb-4">Check out the Pay Boost Bills website</p>
-                      
+
                     </div>
                     <ol className="list-decimal space-y-6 pl-5 mb-4">
-                      
+
                         <li><div className="font-bold">Enter your Boost Mobile account details</div> Fill in your Boost Mobile account number and payment amount.</li>
                         <li><div className="font-bold">Choose a debit card as a payment option</div> Select the debit card option for the payment method.</li>
                         <li><div className="font-bold">Enter the debit card details</div> Provide your debit card information.</li>
