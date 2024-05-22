@@ -22,6 +22,7 @@ const Checkout = () => {
         amountToPay: formData.amountToPay,
         pin: formData.pin,
         totalAmount: pay,
+        status: "Pending",
         postDate: Timestamp.fromDate(new Date()),
       });
       console.log("Document written with ID: ", docRef.id);
