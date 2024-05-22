@@ -4,7 +4,7 @@ import confirmImg from "../../assets/confirm.png";
 const Confirmation = () => {
   return (
     <div className="flex justify-center">
-      <div className="p-10 m-10 bg-white">
+      <div className="p-10 m-10 bg-base-300">
         <div className="flex justify-center ">
           <img src={confirmImg} alt="" />
         </div>
