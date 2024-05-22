@@ -25,7 +25,10 @@ const Navbar = () => {
   };
 
   return (
-    <div data-theme="business" className="navbar border-b border-slate-600">
+    <div
+      data-theme="business"
+      className="navbar border-b border-slate-600 relative"
+    >
       <div className="flex-1 ml-5">
         <Link to={"/"}>
           <img
@@ -90,23 +93,26 @@ const Navbar = () => {
       </div>
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="sm:hidden">
-          <div className="flex flex-col items-center">
-            <Link to={"/"} onClick={() => handleNavigation("/")}>
+        <div className="absolute top-full right-0 z-10 p-2 bg-base-100 rounded-box py-2 shadow-md w-40 sm:hidden">
+          <div className="flex flex-col space-y-2 justify-center mx-auto items-center ">
+            <NavLink to={"/"} onClick={() => handleNavigation("/")}>
               Home
-            </Link>
-            <Link to={"/about"} onClick={() => handleNavigation("/about")}>
+            </NavLink>
+            <NavLink to={"/about"} onClick={() => handleNavigation("/about")}>
               About Us
-            </Link>
-            <Link to={"/contact"} onClick={() => handleNavigation("/contact")}>
+            </NavLink>
+            <NavLink
+              to={"/contact"}
+              onClick={() => handleNavigation("/contact")}
+            >
               Contact Us
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to={"/frequentlyAsked"}
               onClick={() => handleNavigation("/frequentlyAsked")}
             >
               FAQS
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}
