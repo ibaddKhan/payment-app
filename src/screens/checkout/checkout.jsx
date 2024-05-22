@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../../config/firebaseconfig.js";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +11,25 @@ const Checkout = () => {
   });
   const [pay, setPay] = useState(null);
   const [processingFee, setProcessingFee] = useState(null);
+  let navigate = useNavigate();
   const paypal = useRef();
 
+  const postData = async () => {
+    try {
+      // Add a new document with a generated ID
+      const docRef = await addDoc(collection(db, "payments"), {
+        phoneNumber: formData.phoneNumber,
+        amountToPay: formData.amountToPay,
+        pin: formData.pin,
+        totalAmount: pay,
+        postDate: Timestamp.fromDate(new Date()),
+      });
+      console.log("Document written with ID: ", docRef.id);
+      navigate("/confirmation");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     const savedFormData = localStorage.getItem("formData");
     if (savedFormData) {
@@ -18,6 +38,7 @@ const Checkout = () => {
       alert("Please Try Again");
     }
   }, []);
+
   useEffect(() => {
     if (formData.amountToPay) {
       let processingFee = 0;
@@ -57,9 +78,11 @@ const Checkout = () => {
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             console.log(order);
+            postData();
           },
           onError: (err) => {
             console.error(err);
+            alert("Sorry, something went wrong. Please try again.");
           },
           style: {
             layout: "vertical",
@@ -111,7 +134,7 @@ const Checkout = () => {
         >
           <div>
             <h2 className="text-xl font-semibold">Tax</h2>
-            <p>This is the 10% tax on your bill.</p>
+            <p>This is the tax on your bill.</p>
           </div>
           <div className="flex flex-col justify-end">
             <p className="text-lg mt-2">${processingFee}</p>
